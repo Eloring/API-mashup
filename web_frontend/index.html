@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+    <title>News For all language</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/iconfont/iconfont.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".viewWrapper").mouseenter(function () {
+                $(this).addClass("clear");
+                $(this).removeClass("blur");
+            });
+            $(".viewWrapper").mouseleave(function () {
+                $(this).addClass("blur");
+                $(this).removeClass("clear");
+            });
+        });
+
+        function focusName() {
+            setTimeout(function () {
+                $('#name').focus();
+            }, 1);
+        }
+    </script>
+</head>
+
+<body>
+    <header id="header">
+        <div id="photo"><img src="img/news.jpg" ondragstart="return false;"></div>
+        <div id="introduce">"Language,here"</div>
+    </header>
+    <div id="main">
+        <div id="works">
+            <div class="subTitle">News Today</div>
+            <div class="work">
+                <div class="workLink">
+                    <a class="viewWrapper" href="news.html" target="_blank">
+                        <div class="view">View</div>
+                    </a>
+                    <img src="img/BBCNews.png" alt="BBC News">
+                </div>
+                <p class="title">BBC News</p>
+                <p class="content">content.....</p>
+            </div>
+            <div class="work">
+                <div class="workLink">
+                    <a class="viewWrapper" href=" " target="_blank">
+                        <div class="view">View</div>
+                    </a>
+                    <img src="img/foxsports.png" alt="CNBA News">
+                </div>
+                <p class="title">CNBA</p>
+                <p class="content">content</p>
+            </div>
+            <div class="work">
+                <div class="workLink">
+                    <a class="viewWrapper" href=" " target="_blank">
+                        <div class="view">View</div>
+                    </a>
+                    <img src="img/CNBA.png" alt="Time">
+                </div>
+                <p class="title">CNBA</p>
+                <p class="content">content</p>
+            </div>
+            <div class="work">
+                <div class="workLink">
+                    <a class="viewWrapper" href=" " target="_blank">
+                        <div class="view">View</div>
+                    </a>
+                    <img src="img/cnn.png" alt="reddit News">
+                </div>
+                <p class="title">time</p>
+                <p class="content">content</p>
+            </div>
+        </div>
+    </div>   
+    <div style="display:none;">
+        <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1259326112'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259326112' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+    <title>News</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/iconfont/iconfont.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/jquery.params.js"></script>
+    <script>
+        function GetQueryString(name)
+        {
+            var reg = new RegExp("(^|&)"+ newsType +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)
+                return  unescape(r[2]); 
+            return null;
+        }
+        // function getNewsType(){
+        //     var newsType = $.query.get("newsType");
+        //     $("#newsType").text(newsType);
+        // }
+        $(document).ready(function(){
+            var newsType = GetQueryString("newsType");
+            $.ajax({
+                url: "http://localhost/s/public/index.php/"+newsType,
+                type: "GET",
+                Accept: "application/json",
+                success: function (resultdata) {
+                    var data = eval('('+resultdata+')');
+                    for(var p in data){
+                        var title = data[p].title;
+                        var date = data[p].date;
+                        var description = data[p].description;
+                        var image = data[p].image;
+                        var newsurl = data[p].newsurl; 
+                        html += '<li class="news"><p class="title">'+title+'</p><p class="date">'+date+'</p><img src="img/background1.jpg"><p class="content">'+description+'</p></li>';
+                       
+                    }$("#news").html(html);
+                     
+                },
+                error: function(e) {
+                    alert("error");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header id="header2">
+        <div id="photo"><img src="img/news.jpg" ondragstart="return false;"></div>
+        <div id="introduce">"Language,here"</div>
+    </header>
+    <div id="main2">
+        <div class="subTitle">News Today</div>
+        <div id="news">
+        <li class="news">
+            <p class="title">BBC News</p>
+            <p class="date">2017.03.17</p>
+            <img src="img/background1.jpg">
+            <p class="content">content.....</p>
+        </li> 
+        <li class="news">
+            <p class="title">BBC News</p>
+            <p class="date">2017.03.17</p>
+            <img src="img/background1.jpg">
+            <p class="content">content.....</p>
+        </li> 
+        <li class="news">
+            <p class="title">BBC News</p>
+            <p class="date">2017.03.17</p>
+            <img src="img/background1.jpg">
+            <p class="content">content.....</p>
+        </li>         
+        </div>
+    </div>   
+    <div style="display:none;">
+        <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1259326112'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259326112' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </div>
+</body>
+</html>
